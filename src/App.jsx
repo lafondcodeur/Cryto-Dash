@@ -1,30 +1,64 @@
 import { useEffect, useState } from "react";
+import CoinCard from "./components/CoinCard";
+import LimitSelector from "./components/LimitSelector";
+import FilterInput from "./components/FilterInput";
 
-const API_URL =
-  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const App = () => {
-  const [coins, setCoins] = useState(0);
+  const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [limit, setLimit] = useState(10);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    fetch(API_URL)
-      .then((res) => {
-        if (!res.ok) throw Error("Failded to Fetch Data");
-        return res.json();
-      })
-      .then((data) => {
+    const fetchCoins = async () => {
+      try {
+        const res = await fetch(
+          `${API_URL}&order=market_cap_desc&per_page=${limit}&page=1&sparkline=false`
+        );
+        if (!res.ok) throw new Error("Failed to fetch data");
+        const data = await res.json();
         console.log(data);
         setCoins(data);
-        setLoading(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         setError(err.message);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+    fetchCoins();
+  }, [limit]);
+
+  const filterCoins = coins.filter((coin) => {
+    return (
+      coin.name.toLowerCase().includes(filter.toLowerCase()) ||
+      coin.symbol.toLowerCase().includes(filter.toLowerCase())
+    );
   });
-  return <div>Cryto Dash</div>;
+
+  return (
+    <div>
+      <h1>Cryto Dash</h1>
+      {loading && <p style={{ textAlign: "center" }}>Loading...</p>}
+      {error && <div className="error">{error}</div>}
+      <div className="top-control">
+        <FilterInput filter={filter} onFilterChange={setFilter} />
+        <LimitSelector limit={limit} onLimitChange={setLimit} />
+      </div>
+
+      {!loading && !error && (
+        <main className="grid">
+          {filterCoins.length > 0 ? (
+            filterCoins.map((coin) => <CoinCard key={coin.id} coin={coin} />)
+          ) : (
+            <p>No Matching Coin</p>
+          )}
+        </main>
+      )}
+    </div>
+  );
 };
 
 export default App;
