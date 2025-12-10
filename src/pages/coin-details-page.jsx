@@ -11,7 +11,7 @@ const CoinDetailPage = () => {
   useEffect(() => {
     const fetchCoin = async () => {
       try {
-        const res = await fetch(`$(API_URL)/${id}`);
+        const res = await fetch(`$A{PI_URL}/${id}`);
         if (!res.ok) throw new Error("Failed to fetch data");
         const data = await res.json();
         console.log(data);
