@@ -45,7 +45,7 @@ const HomePage = ({
       <h1>Cryto Dash</h1>
       {loading && <Spinner />}
       {error && <div className="error">{error}</div>}
-      <div className="top-control">
+      <div className="top-controls">
         <FilterInput filter={filter} onFilterChange={setFilter} />
         <LimitSelector limit={limit} onLimitChange={setLimit} />
         <SortSelector sortBy={sortBy} onSortChange={setSortBy} />

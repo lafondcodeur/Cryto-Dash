@@ -1,6 +1,6 @@
 const AboutPage = () => {
   return (
-    <div>
+    <div className="about">
       <h1>About Crypto Dash</h1>
       <p>
         Crypto Dash is a simple React application that displays live
