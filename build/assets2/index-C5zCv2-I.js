@@ -29779,7 +29779,7 @@ const styles = {
     fontWeight: "bold"
   }
 };
-const API_URL = "/api/api/v3/coins/markets?vs_currency=usd";
+const API_URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
 const App = () => {
   const [coins, setCoins] = reactExports.useState([]);
   const [loading, setLoading] = reactExports.useState(true);
