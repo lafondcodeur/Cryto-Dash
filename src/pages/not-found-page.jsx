@@ -8,7 +8,7 @@ const NotFoundPage = () => {
         The page who you are looking for does'nt exist{" "}
       </p>
       <Link style={styles.Link} Link to="/">
-        Go to Home Page
+        Go to Home Page Now
       </Link>
     </div>
   );
