@@ -14931,36 +14931,6 @@ const Header = () => {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/about", children: "About" })
   ] });
 };
-const NotFoundPage = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles.container, children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: styles.title, children: "404" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: styles.message, children: [
-      "The page who you are looking for does'nt exist",
-      " "
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { style: styles.Link, Link: true, to: "/", children: "Go to Home Page" })
-  ] });
-};
-const styles = {
-  container: {
-    textAlign: "center",
-    padding: "80px 20px",
-    color: "#fff"
-  },
-  title: {
-    fontSize: "72px",
-    marginBottom: "20px"
-  },
-  message: {
-    fontSize: "18px",
-    marginBottom: "30px"
-  },
-  Link: {
-    textDecoration: "none",
-    color: "#007bff",
-    fontWeight: "bold"
-  }
-};
 function round(v) {
   return v + 0.5 | 0;
 }
@@ -29778,6 +29748,36 @@ const CoinDetailPage = () => {
       ] })
     ] })
   ] });
+};
+const NotFoundPage = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: styles.title, children: "404" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: styles.message, children: [
+      "The page who you are looking for does'nt exist",
+      " "
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { style: styles.Link, Link: true, to: "/", children: "Go to Home Page" })
+  ] });
+};
+const styles = {
+  container: {
+    textAlign: "center",
+    padding: "80px 20px",
+    color: "#fff"
+  },
+  title: {
+    fontSize: "72px",
+    marginBottom: "20px"
+  },
+  message: {
+    fontSize: "18px",
+    marginBottom: "30px"
+  },
+  Link: {
+    textDecoration: "none",
+    color: "#007bff",
+    fontWeight: "bold"
+  }
 };
 const API_URL = "/api/api/v3/coins/markets?vs_currency=usd";
 const App = () => {
