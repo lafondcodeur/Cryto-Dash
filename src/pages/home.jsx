@@ -42,7 +42,7 @@ const HomePage = ({
 
   return (
     <div>
-      <h1>Cryto Dash</h1>
+      <h1>Cryto Dash By MACK</h1>
       {loading && <Spinner />}
       {error && <div className="error">{error}</div>}
       <div className="top-controls">
